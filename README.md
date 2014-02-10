@@ -12,4 +12,4 @@ Not the whole url.
 I will add more networks in the future.
 
 
-If you find an error or have any suggestions, let me know. 
+If you find an error or have any suggestions, please let me know. 
