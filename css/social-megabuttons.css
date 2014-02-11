@@ -121,7 +121,7 @@
 }
 
 .megabutton-profil:before {
-	line-height: 2em;
+    font-size: .8em;
 }
 
 .megabutton-profil:hover {
