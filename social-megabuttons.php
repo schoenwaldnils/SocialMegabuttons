@@ -30,29 +30,31 @@ class megabutton_plugin extends WP_Widget {
                 $$value = esc_attr($instance[$value]);
              }
         } else {
-            $binde = '-';
             $title = '';
-            $twitter = 'johndoe';
-            $facebook = 'john.doe';
-            foreach ($socialnetworks as &$value) {
-                if ($value == 'google-plus') {
-                    $$value =  '+JohnDoeEn';
-                }
+             foreach ($socialnetworks as &$value) {
+                $$value = '';
              }
-            $linkedin = '123456789 - just for a company-page';
         } ?>
-        
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'wp_widget_plugin'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
         </p>
         <br />
-        <h4>Insert profilname, like 'JohnDoe'</h4>
         <?php
-        foreach ($socialnetworks as &$value) { ?>
+        foreach ($socialnetworks as &$value) { 
+            if ($value == 'twitter') {
+                $label_url = 'twitter.com/';
+            } elseif ($value == 'facebook') {
+                $label_url = 'facebook.com/';
+            } elseif ($value == 'google-plus') {
+                $label_url = 'plus.google.com/u/0/';
+            } elseif ($value == 'linkedin') {
+                $label_url = 'linkedin.com/profile/view?id=';
+            } ?>
             <p>
-                <label for="<?php echo $this->get_field_id($value); ?>"><?php echo ucfirst(strtolower($value)); ?>:</label>
-                <input class="widefat" id="<?php echo $this->get_field_id($value); ?>" name="<?php echo $this->get_field_name($value); ?>" type="text" value="<?php echo ${$value}; ?>" />
+                <label class="megabuttons-label" for="<?php echo $this->get_field_id($value); ?>"><?php echo $label_url; ?></label>
+                <input class="megabuttons-input megabuttons-input-<?php echo $value; ?>" id="<?php echo $this->get_field_id($value); ?>" name="<?php echo $this->get_field_name($value); ?>" type="text" value="<?php echo ${$value}; ?>" />
+                <?php if ($value == 'linkedin') { echo '<label for="'.$this->get_field_id($value).'"><br />*for company-pages only</label>';}?>
             </p>
         <?php }
     }
