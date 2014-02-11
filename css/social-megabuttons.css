@@ -1,14 +1,17 @@
 .megabutton {
 	position: relative;
-	font-size: 25px;
 	height: 50px;
 	width: 100%;
 	margin: .5em 0 0;
-	-o-border-radius: .25em;
-	border-radius: .25em;
+	font-size: 25px;
+	text-align: center;
+	line-height: 1.5em;
 	background: #aaa;
 
-	-webkit-perspective: 25em;
+	-o-border-radius: .25em;
+	border-radius: .25em;
+
+    -webkit-perspective: 25em;
 	-moz-perspective: 25em;
 	-ms-perspective: 25em;
 	-o-perspective: 25em;
@@ -19,8 +22,6 @@
 	-ms-transition: background .3s, color .3s;
 	-o-transition: background .3s, color .3s;
 	transition: background .3s, color .3s;
-	text-align: center;
-	line-height: 1.5em;
 }
 
 .megabutton:before {
@@ -28,12 +29,14 @@
 	top: 0;
 	left: 0;
 	z-index: 2;
-	color: #fff;
-	text-align: center;
-	line-height: 2em;
 	height: 2em;
 	width: 100%;
+	text-align: center;
+	line-height: 2em;
+	color: #fff;
 	margin-bottom: -2em;
+
+    -o-border-radius: .25em;
 	border-radius: .25em;
 
 	-webkit-transform-style: preserve-3d;
@@ -55,11 +58,11 @@
 	transition: transform .3s;
 }
 
-.megabutton:hover {
+.megabutton:hover, .megabutton:active {
 	background: #ddd;
 }
 
-.megabutton:hover:before {
+.megabutton:hover:before, .megabutton:active:before {
 	-webkit-transform: rotateX(110deg);
 	-moz-transform: rotateX(110deg);
 	-o-transform: rotateX(110deg);
@@ -109,10 +112,12 @@
 	width: 22%;
 	height: 2em;
 	line-height: 2em;
-	-o-border-radius: 0 .25em .25em 0;
-	border-radius: 0 .25em .25em 0;
 	float: right;
 	color: #fff;
+    text-decoration: none;
+
+    -o-border-radius: 0 .25em .25em 0;
+	border-radius: 0 .25em .25em 0;
 }
 
 .megabutton-profil:before {
