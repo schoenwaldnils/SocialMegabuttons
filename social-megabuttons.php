@@ -8,7 +8,7 @@
     */
 
 global $socialnetworks;
-$socialnetworks = array("twitter", "facebook", "google-plus");
+$socialnetworks = array("twitter", "facebook", "google-plus", "linkedin");
 
 class megabutton_plugin extends WP_Widget {
 
@@ -30,10 +30,16 @@ class megabutton_plugin extends WP_Widget {
                 $$value = esc_attr($instance[$value]);
              }
         } else {
+            $binde = '-';
             $title = '';
+            $twitter = 'johndoe';
+            $facebook = 'john.doe';
             foreach ($socialnetworks as &$value) {
-                $$value = '';
-            }
+                if ($value == 'google-plus') {
+                    $$value =  '+JohnDoeEn';
+                }
+             }
+            $linkedin = '123456789 - just for a company-page';
         } ?>
         
         <p>
@@ -80,6 +86,8 @@ class megabutton_plugin extends WP_Widget {
                 $$value = array('user' => $instance[$value], 'url' => 'http://www.facebook.com/', 'button' => '<div class="fb-like" data-href="http://www.facebook.com/'.$instance[$value].'" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div><div id="fb-root"></div>');
             } elseif ($value == 'google-plus') {
                 $$value = array('user' => $instance[$value], 'url' => 'https://plus.google.com/u/0/', 'button' => '<div class="g-plusone" data-href="https://plus.google.com/u/0/'.$instance[$value].'" data-size="standard" data-annotation="none" data-recommendations="false" data-align="left"></div>');
+            } elseif ($value == 'linkedin') {
+                $$value = array('user' => $instance[$value], 'url' => 'http://www.linkedin.com/profile/view?id=', 'button' => '<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script><script type="IN/FollowCompany" data-id="'.$instance[$value].'" data-counter="none"></script>');
             }
         }
         echo $before_widget;
@@ -90,7 +98,7 @@ class megabutton_plugin extends WP_Widget {
         }
 
         foreach ($socialnetworks as &$value) {
-            if( ${$value} ) {
+            if( ${$value}['user'] ) {
                 echo '<div class="megabutton megabutton-'.$value.' fa fa-'.$value.'"><div class="megabutton-button">'.${$value}['button'].'</div><a class="megabutton-profil fa fa-link" href="'.${$value}['url'].${$value}['user'].'" target="_blank"></a></div>'; 
             }
         }

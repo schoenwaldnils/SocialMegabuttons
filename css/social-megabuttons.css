@@ -102,6 +102,14 @@
 	background: rgb(221,75,57);
 }
 
+.megabutton-linkedin:before {
+	background: rgb(42,135,179);
+}
+
+.megabutton-linkedin .megabutton-profil {
+	background: rgb(0,123,182);
+}
+
 /* special button positioning */
 .megabutton-facebook .fb_iframe_widget span {
 	vertical-align: baseline !important;
@@ -111,7 +119,7 @@
 .megabutton-profil {
 	width: 22%;
 	height: 2em;
-	line-height: 2em;
+	line-height: 2em !important;
 	float: right;
 	color: #fff;
     text-decoration: none;
