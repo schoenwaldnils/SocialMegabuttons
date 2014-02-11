@@ -91,11 +91,11 @@
 	background: rgb(59,89,152);
 }
 
-.megabutton-googleplus:before {
+.megabutton-google-plus:before {
 	background: rgb(229,119,106);
 }
 
-.megabutton-googleplus .megabutton-profil {
+.megabutton-google-plus .megabutton-profil {
 	background: rgb(221,75,57);
 }
 
@@ -113,6 +113,10 @@
 	border-radius: 0 .25em .25em 0;
 	float: right;
 	color: #fff;
+}
+
+.megabutton-profil:before {
+	line-height: 2em;
 }
 
 .megabutton-profil:hover {

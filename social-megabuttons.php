@@ -8,7 +8,7 @@
     */
 
 global $socialnetworks;
-$socialnetworks = array("twitter", "facebook", "googleplus");
+$socialnetworks = array("twitter", "facebook", "google-plus");
 
 class megabutton_plugin extends WP_Widget {
 
@@ -78,7 +78,7 @@ class megabutton_plugin extends WP_Widget {
                 $$value = array('user' => $instance[$value], 'url' => 'https://twitter.com/', 'button' => '<a href="https://twitter.com/'.$instance[$value].'" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow Me</a>');
             } elseif ($value == 'facebook') {
                 $$value = array('user' => $instance[$value], 'url' => 'http://www.facebook.com/', 'button' => '<div class="fb-like" data-href="http://www.facebook.com/'.$instance[$value].'" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div><div id="fb-root"></div>');
-            } elseif ($value == 'googleplus') {
+            } elseif ($value == 'google-plus') {
                 $$value = array('user' => $instance[$value], 'url' => 'https://plus.google.com/u/0/', 'button' => '<div class="g-plusone" data-href="https://plus.google.com/u/0/'.$instance[$value].'" data-size="standard" data-annotation="none" data-recommendations="false" data-align="left"></div>');
             }
         }
@@ -91,7 +91,7 @@ class megabutton_plugin extends WP_Widget {
 
         foreach ($socialnetworks as &$value) {
             if( ${$value} ) {
-                echo '<div class="megabutton megabutton-'.$value.' fa-'.$value.'"><div class="megabutton-button">'.${$value}['button'].'</div><a class="megabutton-profil fa-link" href="'.${$value}['url'].${$value}['user'].'" target="_blank"></a></div>'; 
+                echo '<div class="megabutton megabutton-'.$value.' fa fa-'.$value.'"><div class="megabutton-button">'.${$value}['button'].'</div><a class="megabutton-profil fa fa-link" href="'.${$value}['url'].${$value}['user'].'" target="_blank"></a></div>'; 
             }
         }
         echo $after_widget;
