@@ -1,3 +1,9 @@
+.megabutton *, .megabutton *:after, .megabutton *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .megabutton {
 	position: relative;
 	height: 50px;
@@ -22,6 +28,8 @@
 	-ms-transition: background .3s, color .3s;
 	-o-transition: background .3s, color .3s;
 	transition: background .3s, color .3s;
+    
+    -webkit-transform: translateZ(0);
 }
 
 .megabutton:before {
@@ -121,17 +129,20 @@
 	height: 2em;
 	line-height: 2em !important;
 	float: right;
-	color: #fff;
     text-decoration: none;
 
     -o-border-radius: 0 .25em .25em 0;
 	border-radius: 0 .25em .25em 0;
 }
 
+.megabutton-profil, .megabutton a {
+	color: #fff;
+}
+
 .megabutton-profil:before {
     font-size: .8em;
 }
 
-.megabutton-profil:hover {
+.megabutton-profil, .megabutton a:hover {
 	color: #ddd;
 }

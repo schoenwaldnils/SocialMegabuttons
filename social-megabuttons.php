@@ -101,7 +101,7 @@ class megabutton_plugin extends WP_Widget {
 
         foreach ($socialnetworks as &$value) {
             if( ${$value}['user'] ) {
-                echo '<div class="megabutton megabutton-'.$value.' fa fa-'.$value.'"><div class="megabutton-button">'.${$value}['button'].'</div><a class="megabutton-profil fa fa-link" href="'.${$value}['url'].${$value}['user'].'" target="_blank"></a></div>'; 
+                echo '<div class="megabutton megabutton-'.$value.' fa fa-'.$value.'"><div class="megabutton-button">'.${$value}['button'].'</div><a class="megabutton-profil fa fa-user" href="'.${$value}['url'].${$value}['user'].'" target="_blank"></a></div>'; 
             }
         }
         echo $after_widget;
