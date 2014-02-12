@@ -118,6 +118,14 @@
 	background: rgb(203,32,39);
 }
 
+.megabutton-youtube:before {
+	background: rgb(183,43,42);
+}
+
+.megabutton-youtube .megabutton-profil {
+	background: rgb(187,0,0);
+}
+
 .megabutton-linkedin:before {
 	background: rgb(42,135,179);
 }

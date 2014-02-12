@@ -8,7 +8,7 @@
     */
 
 global $socialnetworks;
-$socialnetworks = array("twitter", "facebook", "google-plus", "pinterest", "linkedin");
+$socialnetworks = array("twitter", "facebook", "google-plus", "pinterest", "youtube", "linkedin");
 
 class megabutton_plugin extends WP_Widget {
 
@@ -50,6 +50,8 @@ class megabutton_plugin extends WP_Widget {
                 $label_url = 'plus.google.com/u/0/';
             } elseif ($value == 'pinterest') {
                 $label_url = 'pinterest.com/';
+            } elseif ($value == 'youtube') {
+                $label_url = 'youtube.com/user/';
             } elseif ($value == 'linkedin') {
                 $label_url = 'linkedin.com/profile/view?id=';
             } ?>
@@ -92,6 +94,8 @@ class megabutton_plugin extends WP_Widget {
                 $$value = array('user' => $instance[$value], 'url' => 'https://plus.google.com/u/0/', 'button' => '<div class="g-plusone" data-href="https://plus.google.com/u/0/'.$instance[$value].'" data-size="standard" data-annotation="none" data-recommendations="false" data-align="left"></div>');
             } elseif ($value == 'pinterest') {
                 $$value = array('user' => $instance[$value], 'url' => 'http://www.pinterest.com/', 'button' => '<a data-pin-do="buttonFollow" href="http://www.pinterest.com/'.$instance[$value].'/">Follow Me</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>');
+            } elseif ($value == 'youtube') {
+                $$value = array('user' => $instance[$value], 'url' => 'https://www.youtube.com/user/', 'button' => '<script src="https://apis.google.com/js/platform.js"></script><div class="g-ytsubscribe" data-channel="'.$instance[$value].'" data-layout="default" data-count="hidden"></div>');
             } elseif ($value == 'linkedin') {
                 $$value = array('user' => $instance[$value], 'url' => 'http://www.linkedin.com/profile/view?id=', 'button' => '<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script><script type="IN/FollowCompany" data-id="'.$instance[$value].'" data-counter="none"></script>');
             }
