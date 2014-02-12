@@ -8,7 +8,7 @@
     */
 
 global $socialnetworks;
-$socialnetworks = array("twitter", "facebook", "google-plus", "linkedin");
+$socialnetworks = array("twitter", "facebook", "google-plus", "pinterest", "linkedin");
 
 class megabutton_plugin extends WP_Widget {
 
@@ -48,6 +48,8 @@ class megabutton_plugin extends WP_Widget {
                 $label_url = 'facebook.com/';
             } elseif ($value == 'google-plus') {
                 $label_url = 'plus.google.com/u/0/';
+            } elseif ($value == 'pinterest') {
+                $label_url = 'pinterest.com/';
             } elseif ($value == 'linkedin') {
                 $label_url = 'linkedin.com/profile/view?id=';
             } ?>
@@ -73,7 +75,7 @@ class megabutton_plugin extends WP_Widget {
         return $instance;
 	}
 
-	// widget display
+	// widget display                           
 	function widget($args, $instance) {
 
 	    global $socialnetworks;
@@ -88,6 +90,8 @@ class megabutton_plugin extends WP_Widget {
                 $$value = array('user' => $instance[$value], 'url' => 'http://www.facebook.com/', 'button' => '<div class="fb-like" data-href="http://www.facebook.com/'.$instance[$value].'" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div><div id="fb-root"></div>');
             } elseif ($value == 'google-plus') {
                 $$value = array('user' => $instance[$value], 'url' => 'https://plus.google.com/u/0/', 'button' => '<div class="g-plusone" data-href="https://plus.google.com/u/0/'.$instance[$value].'" data-size="standard" data-annotation="none" data-recommendations="false" data-align="left"></div>');
+            } elseif ($value == 'pinterest') {
+                $$value = array('user' => $instance[$value], 'url' => 'http://www.pinterest.com/', 'button' => '<a data-pin-do="buttonFollow" href="http://www.pinterest.com/'.$instance[$value].'/">Follow Me</a><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>');
             } elseif ($value == 'linkedin') {
                 $$value = array('user' => $instance[$value], 'url' => 'http://www.linkedin.com/profile/view?id=', 'button' => '<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script><script type="IN/FollowCompany" data-id="'.$instance[$value].'" data-counter="none"></script>');
             }
@@ -118,7 +122,7 @@ function megabutton_scripts() {
 
 	wp_enqueue_style( 'social-megabuttons', $dir_url . 'css/social-megabuttons' . $suffix . '.css', false );
 	wp_enqueue_style( 'font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' );
-	wp_enqueue_script( 'social-megabuttons', $dir_url . 'js/social-megabuttons' . $suffix . '.js', '', $ver, true );
+	wp_enqueue_script( 'social-megabuttons', $dir_url . 'js/social-megabuttons' . $suffix . '.js', '', '', true );
 }
 
 ?>

@@ -110,6 +110,14 @@
 	background: rgb(221,75,57);
 }
 
+.megabutton-pinterest:before {
+	background: rgb(196,67,72);
+}
+
+.megabutton-pinterest .megabutton-profil {
+	background: rgb(203,32,39);
+}
+
 .megabutton-linkedin:before {
 	background: rgb(42,135,179);
 }
